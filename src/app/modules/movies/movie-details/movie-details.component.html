@@ -1,0 +1,10 @@
+<main>
+    <ng-container *ngIf="movieDetails$ | async as movieDetails">
+        <div *ngIf="movieDetails; else noData">
+            {{movieDetails.original_title}}
+        </div>
+        <ng-template #noData>
+            <span>There is no data for this film's id !</span>
+        </ng-template>
+    </ng-container>
+</main>

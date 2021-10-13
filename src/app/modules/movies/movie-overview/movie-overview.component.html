@@ -1,0 +1,14 @@
+<main>
+    <div *ngIf="movies$ | async as movies">
+        <ng-container *ngIf="movies.results.length; else noData">
+            <mat-grid-list [cols]="columns" rowHeight="2:0.5" (window:resize)="onResize()">
+                <mat-grid-tile *ngFor="let movie of movies.results">
+                  <div (click)="navigateToDetailsPage(movie.id)">{{movie.original_title}}</div>
+                </mat-grid-tile>
+              </mat-grid-list>
+        </ng-container>
+        <ng-template #noData>
+            <span>No films was found !</span>
+        </ng-template>
+    </div>
+</main>
